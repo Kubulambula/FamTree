@@ -1,0 +1,87 @@
+[gd_scene load_steps=12 format=3 uid="uid://dtjmsd1flugre"]
+
+[ext_resource type="Script" path="res://scenes/menu_bar.gd" id="1_4ydlj"]
+[ext_resource type="Texture2D" uid="uid://hvgfe01bo011" path="res://icons/link.svg" id="2_50w0k"]
+[ext_resource type="Texture2D" uid="uid://0xmcxf521u0c" path="res://icons/plus.svg" id="2_ab43y"]
+[ext_resource type="Texture2D" uid="uid://cwj1wfk1umqc0" path="res://icons/redo.svg" id="2_gsjpe"]
+[ext_resource type="Texture2D" uid="uid://dmvjbeponwep6" path="res://icons/license.svg" id="2_ygte4"]
+[ext_resource type="Texture2D" uid="uid://pcqi6kynwp8j" path="res://icons/heart.svg" id="3_q5ct4"]
+[ext_resource type="Texture2D" uid="uid://b2d3ucwu4sdgi" path="res://icons/load.svg" id="3_yovtr"]
+[ext_resource type="Texture2D" uid="uid://cshviyqmq3ep1" path="res://icons/save.svg" id="3_yy8ol"]
+[ext_resource type="Texture2D" uid="uid://c6nmj72mnhl7c" path="res://icons/undo.svg" id="4_54l80"]
+[ext_resource type="Texture2D" uid="uid://cvhe8lggsbgc4" path="res://icons/cross.svg" id="6_hv7h5"]
+[ext_resource type="Texture2D" uid="uid://d1b4sufbvjh11" path="res://icons/tools.svg" id="7_uy7lv"]
+
+[node name="MenuBar" type="MenuBar"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 31.0
+grow_horizontal = 2
+script = ExtResource("1_4ydlj")
+
+[node name="$FILE" type="PopupMenu" parent="."]
+size = Vector2i(308, 100)
+item_count = 13
+item_0/text = "$NEW"
+item_0/icon = ExtResource("2_ab43y")
+item_0/id = 0
+item_1/text = "$OPEN"
+item_1/icon = ExtResource("3_yovtr")
+item_1/id = 1
+item_2/text = ""
+item_2/id = 99
+item_2/separator = true
+item_3/text = "$SAVE"
+item_3/icon = ExtResource("3_yy8ol")
+item_3/id = 2
+item_4/text = "$SAVE_AS"
+item_4/icon = ExtResource("3_yy8ol")
+item_4/id = 3
+item_5/text = "$SAVE_ALL"
+item_5/icon = ExtResource("3_yy8ol")
+item_5/id = 4
+item_6/text = ""
+item_6/id = 99
+item_6/separator = true
+item_7/text = "$UNDO"
+item_7/icon = ExtResource("4_54l80")
+item_7/id = 5
+item_8/text = "$REDO"
+item_8/icon = ExtResource("2_gsjpe")
+item_8/id = 6
+item_9/text = ""
+item_9/id = 99
+item_9/separator = true
+item_10/text = "$CLOSE"
+item_10/icon = ExtResource("6_hv7h5")
+item_10/id = 7
+item_11/text = ""
+item_11/id = 99
+item_11/separator = true
+item_12/text = "$QUIT"
+item_12/id = 8
+
+[node name="$SETTINGS" type="PopupMenu" parent="."]
+item_count = 1
+item_0/text = "$EDITOR_SETTINGS"
+item_0/icon = ExtResource("7_uy7lv")
+item_0/id = 0
+
+[node name="$HELP" type="PopupMenu" parent="."]
+item_count = 4
+item_0/text = "$ONLINE_HELP"
+item_0/icon = ExtResource("2_50w0k")
+item_0/id = 0
+item_1/text = ""
+item_1/id = 99
+item_1/separator = true
+item_2/text = "$ABOUT_AND_LICENSE"
+item_2/icon = ExtResource("2_ygte4")
+item_2/id = 1
+item_3/text = "$SUPPORT"
+item_3/icon = ExtResource("3_q5ct4")
+item_3/id = 2
+
+[connection signal="id_pressed" from="$FILE" to="." method="_on_file_id_pressed"]
+[connection signal="id_pressed" from="$SETTINGS" to="." method="_on_settings_id_pressed"]
+[connection signal="id_pressed" from="$HELP" to="." method="_on_help_id_pressed"]
