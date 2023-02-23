@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://tr5yd2qjgjwl"]
+
+[node name="WorkAreaPaper" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(800, 800)
+layout_mode = 2

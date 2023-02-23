@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgmea0w05imwd"]
+
+[ext_resource type="Theme" uid="uid://cbc4dyquppe6q" path="res://app/themes/godot4.tres" id="1_ohpf4"]
+
+[node name="quit_confirmation" type="ConfirmationDialog"]
+transparent_bg = true
+title = "$QUIT_CONFIRMATION_TITLE"
+size = Vector2i(486, 100)
+transparent = true
+theme = ExtResource("1_ohpf4")
+ok_button_text = "$QUIT_CONFIRMATION_OK"
+dialog_text = "$QUIT_CONFIRMATION_DIALOG"
+dialog_autowrap = true
+cancel_button_text = "$QUIT_CONFIRMATION_CANCEL"

@@ -11,7 +11,12 @@ $REDO;Redo;
 $CLOSE;Close;Zavřít
 $QUIT;Quit;Ukončit
 $ONLINE_HELP;Online Help;Online Nápověda
-$ABOUT_AND_LICENSE;About & License;Informace & License
+$LICENSE;License;License
 $SUPPORT;Support;Podpořit
 $SETTINGS;Settings;Nastavení
 $EDITOR_SETTINGS;Editor Settings;Nastavení Editoru
+$3RD_PARTY_LICENSES;Third-party licenses;License třetích stran
+$QUIT_CONFIRMATION_TITLE;Do you really want to quit?;Opravdu chcete program ukončit?
+$QUIT_CONFIRMATION_DIALOG;All unsaved progress will be lost.;Všechen neuložený postup bude ztracen.
+$QUIT_CONFIRMATION_OK;OK;OK
+$QUIT_CONFIRMATION_CANCEL;Cancel;Zrušit

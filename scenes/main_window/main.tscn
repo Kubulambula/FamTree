@@ -1,0 +1,71 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctbqmnsaibpb6"]
+
+[ext_resource type="Theme" uid="uid://cbc4dyquppe6q" path="res://app/themes/godot4.tres" id="1_nbnu3"]
+[ext_resource type="PackedScene" uid="uid://c6og4yap40djr" path="res://scenes/main_window/menu_bar.tscn" id="2_lqdxp"]
+[ext_resource type="PackedScene" uid="uid://cq8vvr25tyvn8" path="res://scenes/editors/lineage_editor/lineage_editor.tscn" id="3_47kp6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4dxpw"]
+bg_color = Color(0.490196, 0.490196, 0.490196, 0.27451)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="MainWindow" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_nbnu3")
+
+[node name="BackgroundPanel" type="Panel" parent="."]
+self_modulate = Color(0.882353, 0.882353, 0.882353, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="TopBar" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MenuBar" parent="MarginContainer/VBoxContainer/TopBar" instance=ExtResource("2_lqdxp")]
+layout_mode = 2
+
+[node name="EditorPanel" type="Panel" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_4dxpw")
+
+[node name="EditorMarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/EditorPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="LineageEditor" parent="MarginContainer/VBoxContainer/EditorPanel/EditorMarginContainer" instance=ExtResource("3_47kp6")]
+layout_mode = 2

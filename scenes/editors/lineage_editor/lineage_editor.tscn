@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://cq8vvr25tyvn8"]
+
+[ext_resource type="PackedScene" uid="uid://bv0ewrsujy81s" path="res://scenes/editors/lineage_editor/lineage_editor_work_area.tscn" id="1_bbksv"]
+[ext_resource type="Script" path="res://scenes/editors/lineage_editor/lineage_editor.gd" id="1_jxc14"]
+[ext_resource type="Shader" path="res://scenes/editors/lineage_editor/lineage_editor.gdshader" id="1_m5605"]
+[ext_resource type="PackedScene" uid="uid://cmij2ggfdcpq2" path="res://scenes/editors/magnification_display.tscn" id="3_opg2d"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ikbu4"]
+shader = ExtResource("1_m5605")
+
+[node name="LineageEditor" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jxc14")
+
+[node name="LineageEditorWindow" type="SubViewportContainer" parent="."]
+material = SubResource("ShaderMaterial_ikbu4")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="EditorSubViewport" type="SubViewport" parent="LineageEditorWindow"]
+disable_3d = true
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="WorkArea" parent="LineageEditorWindow/EditorSubViewport" instance=ExtResource("1_bbksv")]
+unique_name_in_owner = true
+
+[node name="MagnificationDisplay" parent="LineageEditorWindow" instance=ExtResource("3_opg2d")]
+unique_name_in_owner = true
+layout_mode = 2

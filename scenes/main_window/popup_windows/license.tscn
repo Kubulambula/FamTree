@@ -1,0 +1,139 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpvofq2hvu57y"]
+
+[ext_resource type="Theme" uid="uid://cbc4dyquppe6q" path="res://app/themes/godot4.tres" id="1_nc2pb"]
+[ext_resource type="Script" path="res://scenes/main_window/popup_windows/license.gd" id="2_hsb70"]
+[ext_resource type="Texture2D" uid="uid://c01e0op8skyc8" path="res://icons/godot.svg" id="3_vcjbg"]
+
+[node name="Window" type="Window"]
+transparent_bg = true
+initial_position = 1
+title = "$LICENSE"
+size = Vector2i(960, 540)
+transient = true
+transparent = true
+theme = ExtResource("1_nc2pb")
+script = ExtResource("2_hsb70")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="Control/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="TabContainer" type="TabContainer" parent="Control/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="$LICENSE" type="Control" parent="Control/Panel/VBoxContainer/TabContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Panel/VBoxContainer/TabContainer/$LICENSE"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/Panel/VBoxContainer/TabContainer/$LICENSE/MarginContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]MIT License[/b]
+
+Copyright (c) 2023 Jakub Janšta (Kubulambula)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
+
+[node name="$3RD_PARTY_LICENSES" type="Control" parent="Control/Panel/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Panel/VBoxContainer/TabContainer/$3RD_PARTY_LICENSES"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Panel/VBoxContainer/TabContainer/$3RD_PARTY_LICENSES/MarginContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Control/Panel/VBoxContainer/TabContainer/$3RD_PARTY_LICENSES/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/Panel/VBoxContainer/TabContainer/$3RD_PARTY_LICENSES/MarginContainer/HBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel/VBoxContainer/TabContainer/$3RD_PARTY_LICENSES/MarginContainer/HBoxContainer/Panel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Godot" type="Button" parent="Control/Panel/VBoxContainer/TabContainer/$3RD_PARTY_LICENSES/MarginContainer/HBoxContainer/Panel/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Godot Engine"
+icon = ExtResource("3_vcjbg")
+alignment = 0
+
+[node name="Svglib" type="Button" parent="Control/Panel/VBoxContainer/TabContainer/$3RD_PARTY_LICENSES/MarginContainer/HBoxContainer/Panel/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Svglib
+"
+alignment = 0
+
+[node name="Control" type="Control" parent="Control/Panel/VBoxContainer/TabContainer/$3RD_PARTY_LICENSES/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="LicenseLabel" type="RichTextLabel" parent="Control/Panel/VBoxContainer/TabContainer/$3RD_PARTY_LICENSES/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="tab_changed" from="Control/Panel/VBoxContainer/TabContainer" to="." method="_on_tab_container_tab_changed"]
+[connection signal="pressed" from="Control/Panel/VBoxContainer/TabContainer/$3RD_PARTY_LICENSES/MarginContainer/HBoxContainer/Panel/ScrollContainer/VBoxContainer/Godot" to="." method="_on_godot_pressed"]
+[connection signal="pressed" from="Control/Panel/VBoxContainer/TabContainer/$3RD_PARTY_LICENSES/MarginContainer/HBoxContainer/Panel/ScrollContainer/VBoxContainer/Svglib" to="." method="_on_svglib_pressed"]

@@ -1,0 +1,56 @@
+<!-- koukni na viewbox https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/viewBox -->	
+<svg fill="#000000" height="600px" width="800px" xmlns="http://www.w3.org/2000/svg">
+	<title>svg test for FamTree✝</title>
+
+	<!--<rect width="300" height="100" style="fill:rgb(0,0,255);stroke-width:3;stroke:rgb(0,0,0)" /> -->
+		
+	<!--rotate(deg rotation_point.x rotation_point.y)-->
+	<rect x="100" y="100" width="100" height="100" style="fill:rgb(0,0,0,0);stroke-width:3;stroke:rgb(0,0,255)" transform="rotate(45 150 150)"/>
+	<!--translate() možná bude lepší varianta, protože rotate je relativní ale záleží na pořadí translate a rotate-->
+	<!--rotate otočí s lokální soustavou souřadnic-->
+	<rect x="0" y="0" width="100" height="100" style="fill:rgb(0,0,0,0);stroke-width:3;stroke:rgb(0,255,0)" transform="translate(100 100) translate(100 0) rotate(45 50 50)"/>
+	
+	<circle cx="600" cy="100" r="50" />
+
+	<text x="300" y="300" class="small" transform="rotate(45 300 300)">Hello World!</text>
+	<rect x="300" y="300" width="5" height="5"/>
+
+
+
+	<line x1="50" y1="80" x2="100" y2="20" stroke="black" />
+
+	<!--rotation origin is relative to the <g> position-->
+	<g transform="translate(400 150) rotate(45 0 0)">
+		<rect x="0" y="0" width="100" height="50" style="fill:rgb(0,0,0,0);stroke-width:3;stroke:rgb(255,0,0)"/>
+		<text x="10" y="30" fill="red">amogus</text>
+	</g>
+
+
+	<rect x="400" y="400.5" width="100" height="50" style="fill:rgb(0,0,0,0);stroke-width:3;stroke:rgb(255,0,0)"/>
+
+
+    <text x="500" y="40" fill="blue">Not a rickroll link✝✝✝✝✝</text>
+
+
+	<text x="10" y="20" style="fill:red;">Several lines:
+    	<tspan x="10" y="45">First line.</tspan>
+    	<tspan x="10" y="70">Second line.</tspan>
+  	</text>
+
+
+
+	<!--https://dabblet.com/gist/5231222-->
+	<!--<svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
+		<rect x="0" y="0" width="100%" height="100%" style="fill:rgb(255,0,255,255);stroke-width:2;stroke:rgb(255,0,0)"/>
+
+		<text font-size="16" dy=".3em" y="0">Name Surname
+			<tspan font-size="10" x="0" y="25">* 6. 9. ..........</tspan>
+			<tspan font-size="10" x="0" y="40">✝ 6. 9. 420</tspan>
+		</text>
+	</svg> -->
+
+
+
+
+
+</svg>
