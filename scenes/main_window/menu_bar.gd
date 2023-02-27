@@ -10,10 +10,10 @@ enum FileTabs {
 	OPEN,
 	SAVE,
 	SAVE_AS,
-	SAVE_ALL,
+#	SAVE_ALL,
 	UNDO,
 	REDO,
-	CLOSE,
+#	CLOSE,
 	QUIT,
 }
 
@@ -38,11 +38,11 @@ func _ready() -> void:
 	file.set_item_shortcut(1, Globals.shortcuts["open"])
 	file.set_item_shortcut(3, Globals.shortcuts["save"])
 	file.set_item_shortcut(4, Globals.shortcuts["save_as"])
-	file.set_item_shortcut(5, Globals.shortcuts["save_all"])
-	file.set_item_shortcut(7, Globals.shortcuts["undo"])
-	file.set_item_shortcut(8, Globals.shortcuts["redo"])
-	file.set_item_shortcut(10, Globals.shortcuts["close"])
-	file.set_item_shortcut(12, Globals.shortcuts["quit"])
+#	file.set_item_shortcut(5, Globals.shortcuts["save_all"])
+	file.set_item_shortcut(6, Globals.shortcuts["undo"])
+	file.set_item_shortcut(7, Globals.shortcuts["redo"])
+#	file.set_item_shortcut(10, Globals.shortcuts["close"])
+	file.set_item_shortcut(9, Globals.shortcuts["quit"])
 	
 	settigns.set_item_shortcut(0, Globals.shortcuts["settings"])
 	
@@ -59,14 +59,14 @@ func _on_file_id_pressed(id: int) -> void:
 			pass
 		FileTabs.SAVE_AS:
 			pass
-		FileTabs.SAVE_ALL:
-			pass
+#		FileTabs.SAVE_ALL:
+#			pass
 		FileTabs.UNDO:
 			pass
 		FileTabs.REDO:
 			pass
-		FileTabs.CLOSE:
-			pass
+#		FileTabs.CLOSE:
+#			pass
 		FileTabs.QUIT:
 			Globals.request_quit()
 

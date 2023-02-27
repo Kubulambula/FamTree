@@ -19,13 +19,15 @@ func redraw(work_area_rect: Rect2) -> void:
 		return
 	for i in trunks.size():
 		trunks[i].redraw(
+			work_area_rect,
 			Rect2(
 				Vector2(
 					(work_area_rect.position.x + work_area_rect.size.x / 2) - trunk_node_size.x / 2,
 					work_area_rect.end.y - (i + 1) * (spacing_between_trunks + trunk_node_size.y)
 				),
 				trunk_node_size
-			)
+			),
+			not bool(i % 2) # every even is prefered on the right
 		)
 
 

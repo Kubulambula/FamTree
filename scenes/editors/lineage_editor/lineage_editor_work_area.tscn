@@ -58,6 +58,9 @@ script = ExtResource("5_bl7fh")
 [node name="LinTreeBranch3" type="Node2D" parent="LinTreeRoot/LinTreeTrunk"]
 script = ExtResource("5_bl7fh")
 
+[node name="LinTreeBranch4" type="Node2D" parent="LinTreeRoot/LinTreeTrunk"]
+script = ExtResource("5_bl7fh")
+
 [node name="LinTreeTrunk2" type="Node2D" parent="LinTreeRoot"]
 script = ExtResource("4_p2swt")
 
@@ -70,8 +73,17 @@ script = ExtResource("5_bl7fh")
 [node name="LinTreeBranch3" type="Node2D" parent="LinTreeRoot/LinTreeTrunk2"]
 script = ExtResource("5_bl7fh")
 
+[node name="LinTreeBranch4" type="Node2D" parent="LinTreeRoot/LinTreeTrunk2"]
+script = ExtResource("5_bl7fh")
+
 [node name="LinTreeTrunk3" type="Node2D" parent="LinTreeRoot"]
 script = ExtResource("4_p2swt")
 
 [node name="LinTreeBranch" type="Node2D" parent="LinTreeRoot/LinTreeTrunk3"]
+script = ExtResource("5_bl7fh")
+
+[node name="LinTreeBranch2" type="Node2D" parent="LinTreeRoot/LinTreeTrunk3"]
+script = ExtResource("5_bl7fh")
+
+[node name="LinTreeBranch3" type="Node2D" parent="LinTreeRoot/LinTreeTrunk3"]
 script = ExtResource("5_bl7fh")
