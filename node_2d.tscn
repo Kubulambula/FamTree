@@ -5,3 +5,6 @@
 [node name="Node2D" type="Node2D"]
 position = Vector2(0, 1)
 script = ExtResource("1_i7aic")
+
+[node name="PopupPanel" type="PopupPanel" parent="."]
+visible = true

@@ -4,10 +4,12 @@ extends Node2D
 @onready var _pan_camera: PanCamera2D = $PanCamera2D
 
 var lin_tree_root: LinTreeRoot = null
-var padding_left: float = 10
+var padding_left: float = 50
 var padding_right: float = 50
-var padding_top: float = 100
-var padding_bottom: float = 50
+var padding_top: float = 200
+var padding_bottom: float = 100
+
+var work_area_rect: Rect2
 
 
 func _ready():
@@ -16,21 +18,26 @@ func _ready():
 	await get_tree().create_timer(0.1).timeout # For some reason, waiting does the trick
 	_pan_camera.do_zoom_without_mouse(0.4 - _pan_camera.zoom.x)
 	
-	lin_tree_root = LinTreeRoot.new()
-	lin_tree_root.work_area_rect = Rect2(Vector2(padding_left, padding_top), paper_size-Vector2(padding_right, padding_bottom))
+	work_area_rect = Rect2(
+		# offset the work area position vector because the ColorRect uses Center anchor preset
+		Vector2(padding_left, padding_top) - (%WorkAreaBG.size / 2), # top-left corner
+		paper_size - Vector2(padding_right + padding_left, padding_bottom + padding_top) # size
+	)
 	
 	queue_redraw()
+	
+	$LinTreeRoot.redraw(work_area_rect)
+
 
 func _draw():
-	if lin_tree_root:
-		draw_rect(lin_tree_root.work_area_rect, Color.RED)
+	draw_rect(work_area_rect, Color.RED)
 
 
 # TODO: This is temp
-#func _input(event: InputEvent) -> void:
-#	if event is InputEventMouseButton:
-#		if event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed():
-#			show_context_popup([{}, {}, {}])
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed():
+			show_context_popup([{}, {}, {}])
 
 
 func get_A_paper_size_mm(A: int) -> Vector2:

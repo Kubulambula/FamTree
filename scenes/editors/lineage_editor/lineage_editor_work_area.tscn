@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bv0ewrsujy81s"]
+[gd_scene load_steps=6 format=3 uid="uid://bv0ewrsujy81s"]
 
 [ext_resource type="Script" path="res://scripts/classes/pan_camera_2d.gd" id="1_3terf"]
 [ext_resource type="Script" path="res://scenes/editors/lineage_editor/lineage_editor_work_area.gd" id="1_jo1qo"]
+[ext_resource type="Script" path="res://scenes/editors/lineage_editor/lineage_editor_nodes/lin_tree_root.gd" id="3_8ayj0"]
+[ext_resource type="Script" path="res://scenes/editors/lineage_editor/lineage_editor_nodes/lin_tree_trunk.gd" id="4_p2swt"]
+[ext_resource type="Script" path="res://scenes/editors/lineage_editor/lineage_editor_nodes/lin_tree_branch.gd" id="5_bl7fh"]
 
 [node name="WorkArea" type="Node2D"]
 script = ExtResource("1_jo1qo")
@@ -26,9 +29,49 @@ script = ExtResource("1_3terf")
 unique_name_in_owner = true
 show_behind_parent = true
 custom_minimum_size = Vector2(2970, 2100)
-offset_right = 2970.0
-offset_bottom = 2100.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1485.0
+offset_top = -1050.0
+offset_right = 1485.0
+offset_bottom = 1050.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 2
 size_flags_vertical = 2
+
+[node name="LinTreeRoot" type="Node2D" parent="."]
+script = ExtResource("3_8ayj0")
+
+[node name="LinTreeTrunk" type="Node2D" parent="LinTreeRoot"]
+script = ExtResource("4_p2swt")
+
+[node name="LinTreeBranch" type="Node2D" parent="LinTreeRoot/LinTreeTrunk"]
+script = ExtResource("5_bl7fh")
+
+[node name="LinTreeBranch2" type="Node2D" parent="LinTreeRoot/LinTreeTrunk"]
+script = ExtResource("5_bl7fh")
+
+[node name="LinTreeBranch3" type="Node2D" parent="LinTreeRoot/LinTreeTrunk"]
+script = ExtResource("5_bl7fh")
+
+[node name="LinTreeTrunk2" type="Node2D" parent="LinTreeRoot"]
+script = ExtResource("4_p2swt")
+
+[node name="LinTreeBranch" type="Node2D" parent="LinTreeRoot/LinTreeTrunk2"]
+script = ExtResource("5_bl7fh")
+
+[node name="LinTreeBranch2" type="Node2D" parent="LinTreeRoot/LinTreeTrunk2"]
+script = ExtResource("5_bl7fh")
+
+[node name="LinTreeBranch3" type="Node2D" parent="LinTreeRoot/LinTreeTrunk2"]
+script = ExtResource("5_bl7fh")
+
+[node name="LinTreeTrunk3" type="Node2D" parent="LinTreeRoot"]
+script = ExtResource("4_p2swt")
+
+[node name="LinTreeBranch" type="Node2D" parent="LinTreeRoot/LinTreeTrunk3"]
+script = ExtResource("5_bl7fh")
