@@ -1,0 +1,65 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyvfoc4fyxsxi"]
+
+[ext_resource type="Script" path="res://scenes/editors/lineage_editor/popup_windows/branch_settings.gd" id="1_lx53i"]
+[ext_resource type="Theme" uid="uid://cbc4dyquppe6q" path="res://app/themes/godot4.tres" id="1_p3fwt"]
+
+[node name="BranchSettings" type="PopupPanel"]
+transparent_bg = true
+size = Vector2i(220, 165)
+visible = true
+transparent = true
+theme = ExtResource("1_p3fwt")
+script = ExtResource("1_lx53i")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 4.0
+offset_right = 217.0
+offset_bottom = 161.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+
+[node name="WidthLabel" type="Label" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "$WIDTH"
+
+[node name="WidthSpinBox" type="SpinBox" parent="Control/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 50.0
+max_value = 2000.0
+value = 50.0
+
+[node name="SpacingLabel" type="Label" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "$SPACING"
+
+[node name="SpacingSpinBox" type="SpinBox" parent="Control/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 15.0
+max_value = 2000.0
+value = 50.0
+
+[connection signal="popup_hide" from="." to="." method="_on_popup_hide"]
+[connection signal="value_changed" from="Control/MarginContainer/VBoxContainer/WidthSpinBox" to="." method="_on_width_spin_box_value_changed"]
+[connection signal="value_changed" from="Control/MarginContainer/VBoxContainer/SpacingSpinBox" to="." method="_on_spacing_spin_box_value_changed"]

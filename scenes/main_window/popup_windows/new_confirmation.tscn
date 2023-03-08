@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddeo8pj06t5x"]
+
+[ext_resource type="Theme" uid="uid://cbc4dyquppe6q" path="res://app/themes/godot4.tres" id="1_8p73n"]
+
+[node name="new_confirmation" type="ConfirmationDialog"]
+transparent_bg = true
+initial_position = 2
+title = "$NEW_CONFIRMATION_TITLE"
+size = Vector2i(490, 100)
+transparent = true
+theme = ExtResource("1_8p73n")
+ok_button_text = "$NEW_CONFIRMATION_OK"
+dialog_text = "$NEW_CONFIRMATION_DIALOG"
+dialog_autowrap = true
+cancel_button_text = "$NEW_CONFIRMATION_CANCEL"

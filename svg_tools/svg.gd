@@ -28,8 +28,10 @@ func end() -> void:
 	code += "</svg>"
 
 
-func add_rect(rect: Rect2, fill: Color, outline: Color, outline_width: float) -> void:
-	code += '<rect x="%f" y="%f" width="%f" height="%f" style="fill:rgb(%d,%d,%d,%d);stroke:rgb(%d,%d,%d,%d);stroke-width:%f"/>\n' % [
-		rect.position.x, rect.position.y, rect.size.x, rect.size.y, fill.r8, fill.g8, fill.b8, fill.a8, outline.r8, outline.g8, outline.g8, outline.a8, outline_width
+func add_rect(rect: Rect2, outline: Color, fill: Color = Color.TRANSPARENT, outline_width: float = 5.0) -> void:
+	var outline_str: String = "none" if outline == Color.TRANSPARENT else "rgb(%d,%d,%d,%d)" % [outline.r8, outline.g8, outline.b8, outline.a8]
+	var fill_str: String = "none" if fill == Color.TRANSPARENT else "rgb(%d,%d,%d,%d)" % [fill.r8, fill.g8, fill.b8, fill.a8]
+	code += '\t<rect x="%f" y="%f" width="%f" height="%f" style="fill:%s;stroke:%s;stroke-width:%f"/>\n' % [
+		rect.position.x, rect.position.y, rect.size.x, rect.size.y, fill_str, outline_str, outline_width
 	]
-	pass
+

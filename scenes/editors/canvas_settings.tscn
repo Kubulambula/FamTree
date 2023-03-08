@@ -1,0 +1,113 @@
+[gd_scene load_steps=3 format=3 uid="uid://mncabvlcjjss"]
+
+[ext_resource type="Theme" uid="uid://cbc4dyquppe6q" path="res://app/themes/godot4.tres" id="1_gyuun"]
+[ext_resource type="Script" path="res://scenes/editors/canvas_settings.gd" id="2_t621v"]
+
+[node name="PopupPanel" type="PopupPanel"]
+transparent_bg = true
+size = Vector2i(380, 170)
+visible = true
+transparent = true
+theme = ExtResource("1_gyuun")
+script = ExtResource("2_t621v")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 4.0
+offset_right = 377.0
+offset_bottom = 166.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="LeftRight" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Left" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/LeftRight"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="PaddingLeft" type="Label" parent="Control/MarginContainer/VBoxContainer/LeftRight/Left"]
+layout_mode = 2
+text = "$PADDING_LEFT"
+
+[node name="PaddingLeftSpinBox" type="SpinBox" parent="Control/MarginContainer/VBoxContainer/LeftRight/Left"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+max_value = 1000.0
+
+[node name="Right" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/LeftRight"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="PaddingRight" type="Label" parent="Control/MarginContainer/VBoxContainer/LeftRight/Right"]
+layout_mode = 2
+text = "$PADDING_RIGHT
+"
+
+[node name="PaddingRightSpinBox" type="SpinBox" parent="Control/MarginContainer/VBoxContainer/LeftRight/Right"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+max_value = 1000.0
+
+[node name="TopBottom" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Top" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/TopBottom"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="PaddingTop" type="Label" parent="Control/MarginContainer/VBoxContainer/TopBottom/Top"]
+layout_mode = 2
+text = "$PADDING_TOP
+"
+
+[node name="PaddingTopSpinBox" type="SpinBox" parent="Control/MarginContainer/VBoxContainer/TopBottom/Top"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+max_value = 1000.0
+
+[node name="Bottom" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/TopBottom"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="PaddingBottom" type="Label" parent="Control/MarginContainer/VBoxContainer/TopBottom/Bottom"]
+layout_mode = 2
+text = "$PADDING_BOTTOM
+"
+
+[node name="PaddingBottomSpinBox" type="SpinBox" parent="Control/MarginContainer/VBoxContainer/TopBottom/Bottom"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+max_value = 1000.0
+
+[connection signal="popup_hide" from="." to="." method="_on_popup_hide"]
+[connection signal="value_changed" from="Control/MarginContainer/VBoxContainer/LeftRight/Left/PaddingLeftSpinBox" to="." method="_on_padding_left_spin_box_value_changed"]
+[connection signal="value_changed" from="Control/MarginContainer/VBoxContainer/LeftRight/Right/PaddingRightSpinBox" to="." method="_on_padding_right_spin_box_value_changed"]
+[connection signal="value_changed" from="Control/MarginContainer/VBoxContainer/TopBottom/Top/PaddingTopSpinBox" to="." method="_on_padding_top_spin_box_value_changed"]
+[connection signal="value_changed" from="Control/MarginContainer/VBoxContainer/TopBottom/Bottom/PaddingBottomSpinBox" to="." method="_on_padding_bottom_spin_box_value_changed"]

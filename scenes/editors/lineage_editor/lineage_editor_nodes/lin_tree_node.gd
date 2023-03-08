@@ -1,5 +1,5 @@
 class_name LinTreeNode
-extends Node2D
+extends Control
 
 
 #func add_descendant(desc: LinTreeNode, main: bool = true) -> void:

@@ -13,7 +13,7 @@ func _on_tab_container_tab_changed(tab: int) -> void:
 func _on_close_requested():
 	queue_free()
 
-
+	
 func _on_godot_pressed() -> void:
 	license_label.text = """Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md).
 Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.

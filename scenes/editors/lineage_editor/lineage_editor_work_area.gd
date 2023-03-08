@@ -3,41 +3,29 @@ extends Node2D
 
 @onready var _pan_camera: PanCamera2D = $PanCamera2D
 
-var lin_tree_root: LinTreeRoot = null
-var padding_left: float = 50
-var padding_right: float = 50
-var padding_top: float = 200
-var padding_bottom: float = 100
 
-var work_area_rect: Rect2
+@onready
+var root: LinTreeRoot = null
+
+var settings_popup = preload("res://scenes/editors/canvas_settings.tscn")
 
 
 func _ready():
+	Globals.lin_tree_work_area = self
 	var paper_size: Vector2 = Vector2(get_A_paper_size_mm(4).y, get_A_paper_size_mm(4).x) * 10
 	%WorkAreaBG.custom_minimum_size = paper_size
-	await get_tree().create_timer(0.1).timeout # For some reason, waiting does the trick
+	%WorkAreaBG.size = paper_size
+	%WorkAreaBG.position = %WorkAreaBG.size / -2
+	await get_tree().process_frame # For some reason, waiting does the trick
 	_pan_camera.do_zoom_without_mouse(0.4 - _pan_camera.zoom.x)
 	
-	work_area_rect = Rect2(
-		# offset the work area position vector because the ColorRect uses Center anchor preset
-		Vector2(padding_left, padding_top) - (%WorkAreaBG.size / 2), # top-left corner
-		paper_size - Vector2(padding_right + padding_left, padding_bottom + padding_top) # size
-	)
-	
-	queue_redraw()
-	
-	$LinTreeRoot.redraw(work_area_rect)
-
-
-func _draw():
-	draw_rect(work_area_rect, Color.RED)
-
-
-# TODO: This is temp
-func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed():
-			show_context_popup([{}, {}, {}])
+	if root == null:
+		root = LinTreeRoot.new()
+		root.paper_size = paper_size
+		
+		add_child(root)
+		root.add_trunk(LinTreeTrunk.new())
+		root.redraw()
 
 
 func get_A_paper_size_mm(A: int) -> Vector2:
@@ -76,3 +64,18 @@ func show_context_popup(items: Array[Dictionary]) -> void:
 	popup_context_menu.popup_hide.connect(popup_context_menu.queue_free)
 	add_child(popup_context_menu)
 	popup_context_menu.popup(Rect2i(get_screen_transform().origin + get_global_mouse_position() * _pan_camera.zoom, Vector2.ZERO))
+
+
+func _on_work_area_bg_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed():
+			var settings = settings_popup.instantiate()
+			add_child(settings)
+			settings.new_values.connect(root._on_new_paddings)
+			settings.show_pls(
+				get_screen_transform().origin + get_local_mouse_position() * Globals.active_camera.zoom,
+				root.padding_left,
+				root.padding_right,
+				root.padding_top,
+				root.padding_bottom
+			)

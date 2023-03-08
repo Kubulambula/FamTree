@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://tr5yd2qjgjwl"]
+[gd_scene load_steps=2 format=3 uid="uid://tr5yd2qjgjwl"]
+
+[ext_resource type="PackedScene" uid="uid://cyvfoc4fyxsxi" path="res://scenes/editors/lineage_editor/popup_windows/branch_settings.tscn" id="1_m0qo3"]
 
 [node name="WorkAreaPaper" type="CenterContainer"]
 anchors_preset = 15
@@ -11,3 +13,6 @@ grow_vertical = 2
 visible = false
 custom_minimum_size = Vector2(800, 800)
 layout_mode = 2
+
+[node name="branch_settings" parent="ColorRect" instance=ExtResource("1_m0qo3")]
+visible = false

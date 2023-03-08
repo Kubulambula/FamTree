@@ -11,6 +11,10 @@ signal zoom_changed(new_zoom)
 @onready var _camera_half_size: Vector2 = get_viewport_rect().size / 2
 
 
+func _ready() -> void:
+	Globals.active_camera = self
+
+
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		if event.button_mask == MOUSE_BUTTON_MASK_LEFT or event.button_mask == MOUSE_BUTTON_MASK_MIDDLE:
@@ -21,9 +25,9 @@ func _input(event: InputEvent) -> void:
 	
 	if event is InputEventMouseButton:
 		if event.is_pressed():
-			if event.double_click and (event.button_index == MOUSE_BUTTON_LEFT or event.button_index == MOUSE_BUTTON_MIDDLE):
-				focus_position(get_global_mouse_position())
-			elif event.button_index == MOUSE_BUTTON_WHEEL_UP:
+#			if event.double_click and (event.button_index == MOUSE_BUTTON_LEFT or event.button_index == MOUSE_BUTTON_MIDDLE):
+#				focus_position(get_global_mouse_position())
+			if event.button_index == MOUSE_BUTTON_WHEEL_UP:
 				do_zoom(zoom_increment)
 			elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 				do_zoom(-zoom_increment)

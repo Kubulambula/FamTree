@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c6og4yap40djr"]
+[gd_scene load_steps=15 format=3 uid="uid://c6og4yap40djr"]
 
 [ext_resource type="Theme" uid="uid://cbc4dyquppe6q" path="res://app/themes/godot4.tres" id="1_mbtuc"]
 [ext_resource type="Script" path="res://scenes/main_window/menu_bar.gd" id="1_ws1cv"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cshviyqmq3ep1" path="res://icons/save.svg" id="4_0pfni"]
 [ext_resource type="Texture2D" uid="uid://c6nmj72mnhl7c" path="res://icons/undo.svg" id="5_1t4wq"]
 [ext_resource type="Texture2D" uid="uid://cwj1wfk1umqc0" path="res://icons/redo.svg" id="6_ckqp3"]
+[ext_resource type="Texture2D" uid="uid://cuws3iyxhgbxw" path="res://icons/image.svg" id="6_j4nim"]
 [ext_resource type="Texture2D" uid="uid://cvhe8lggsbgc4" path="res://icons/cross.svg" id="7_y115u"]
 [ext_resource type="Texture2D" uid="uid://d1b4sufbvjh11" path="res://icons/tools.svg" id="8_uwam3"]
 [ext_resource type="Texture2D" uid="uid://hvgfe01bo011" path="res://icons/link.svg" id="9_2pj3y"]
@@ -35,7 +36,7 @@ script = ExtResource("1_ws1cv")
 
 [node name="$FILE" type="PopupMenu" parent="MenuBar"]
 size = Vector2i(308, 345)
-item_count = 10
+item_count = 12
 item_0/text = "$NEW"
 item_0/icon = ExtResource("2_ncvxq")
 item_0/id = 0
@@ -54,18 +55,26 @@ item_4/id = 3
 item_5/text = ""
 item_5/id = 99
 item_5/separator = true
-item_6/text = "$UNDO"
-item_6/icon = ExtResource("5_1t4wq")
+item_6/text = "$EXPORT"
+item_6/icon = ExtResource("6_j4nim")
 item_6/id = 4
-item_7/text = "$REDO"
-item_7/icon = ExtResource("6_ckqp3")
-item_7/id = 5
-item_8/text = ""
-item_8/id = 99
-item_8/separator = true
-item_9/text = "$QUIT"
-item_9/icon = ExtResource("7_y115u")
+item_7/text = ""
+item_7/id = 99
+item_7/separator = true
+item_8/text = "$UNDO"
+item_8/icon = ExtResource("5_1t4wq")
+item_8/id = 5
+item_8/disabled = true
+item_9/text = "$REDO"
+item_9/icon = ExtResource("6_ckqp3")
 item_9/id = 6
+item_9/disabled = true
+item_10/text = ""
+item_10/id = 99
+item_10/separator = true
+item_11/text = "$QUIT"
+item_11/icon = ExtResource("7_y115u")
+item_11/id = 7
 
 [node name="$SETTINGS" type="PopupMenu" parent="MenuBar"]
 size = Vector2i(202, 100)
@@ -73,6 +82,7 @@ item_count = 1
 item_0/text = "$EDITOR_SETTINGS"
 item_0/icon = ExtResource("8_uwam3")
 item_0/id = 0
+item_0/disabled = true
 
 [node name="$HELP" type="PopupMenu" parent="MenuBar"]
 size = Vector2i(170, 114)
@@ -89,6 +99,7 @@ item_2/id = 1
 item_3/text = "$SUPPORT"
 item_3/icon = ExtResource("11_5ds6i")
 item_3/id = 2
+item_3/disabled = true
 
 [connection signal="id_pressed" from="MenuBar/$FILE" to="MenuBar" method="_on_file_id_pressed"]
 [connection signal="id_pressed" from="MenuBar/$SETTINGS" to="MenuBar" method="_on_settings_id_pressed"]
