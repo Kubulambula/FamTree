@@ -63,8 +63,7 @@ theme_override_constants/separation = 0
 
 [node name="PaddingRight" type="Label" parent="Control/MarginContainer/VBoxContainer/LeftRight/Right"]
 layout_mode = 2
-text = "$PADDING_RIGHT
-"
+text = "$PADDING_RIGHT"
 
 [node name="PaddingRightSpinBox" type="SpinBox" parent="Control/MarginContainer/VBoxContainer/LeftRight/Right"]
 unique_name_in_owner = true
@@ -82,8 +81,7 @@ theme_override_constants/separation = 0
 
 [node name="PaddingTop" type="Label" parent="Control/MarginContainer/VBoxContainer/TopBottom/Top"]
 layout_mode = 2
-text = "$PADDING_TOP
-"
+text = "$PADDING_TOP"
 
 [node name="PaddingTopSpinBox" type="SpinBox" parent="Control/MarginContainer/VBoxContainer/TopBottom/Top"]
 unique_name_in_owner = true
@@ -97,8 +95,7 @@ theme_override_constants/separation = 0
 
 [node name="PaddingBottom" type="Label" parent="Control/MarginContainer/VBoxContainer/TopBottom/Bottom"]
 layout_mode = 2
-text = "$PADDING_BOTTOM
-"
+text = "$PADDING_BOTTOM"
 
 [node name="PaddingBottomSpinBox" type="SpinBox" parent="Control/MarginContainer/VBoxContainer/TopBottom/Bottom"]
 unique_name_in_owner = true

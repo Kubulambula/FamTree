@@ -12,7 +12,10 @@ config_version=5
 
 config/name="FamTree"
 run/main_scene="res://scenes/main_window/main.tscn"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="FamTree"
 config/features=PackedStringArray("4.0")
+run/flush_stdout_on_print=true
 run/low_processor_mode=true
 boot_splash/show_image=false
 config/icon="res://app/icon.svg"
@@ -21,8 +24,14 @@ config/icon="res://app/icon.svg"
 
 Globals="*res://scripts/singletons/globals.gd"
 
+[debug]
+
+file_logging/enable_file_logging=true
+file_logging/log_path="user://logs/FamTree.log"
+
 [display]
 
+window/size/mode=2
 window/size/transparent=true
 window/per_pixel_transparency/allowed=true
 window/subwindows/embed_subwindows=false
@@ -42,5 +51,3 @@ common/enable_pause_aware_picking=true
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
-vram_compression/import_etc=true
-vram_compression/import_etc2=false

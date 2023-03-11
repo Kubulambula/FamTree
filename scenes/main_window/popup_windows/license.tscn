@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dpvofq2hvu57y"]
+[gd_scene load_steps=5 format=3 uid="uid://dpvofq2hvu57y"]
 
 [ext_resource type="Theme" uid="uid://cbc4dyquppe6q" path="res://app/themes/godot4.tres" id="1_nc2pb"]
 [ext_resource type="Script" path="res://scenes/main_window/popup_windows/license.gd" id="2_hsb70"]
 [ext_resource type="Texture2D" uid="uid://c01e0op8skyc8" path="res://icons/godot.svg" id="3_vcjbg"]
+[ext_resource type="Texture2D" uid="uid://cuws3iyxhgbxw" path="res://icons/image.svg" id="4_pdvwj"]
 
 [node name="Window" type="Window"]
 transparent_bg = true
@@ -116,12 +117,11 @@ text = "Godot Engine"
 icon = ExtResource("3_vcjbg")
 alignment = 0
 
-[node name="Svglib" type="Button" parent="Control/Panel/VBoxContainer/TabContainer/$3RD_PARTY_LICENSES/MarginContainer/HBoxContainer/Panel/ScrollContainer/VBoxContainer"]
+[node name="Logo" type="Button" parent="Control/Panel/VBoxContainer/TabContainer/$3RD_PARTY_LICENSES/MarginContainer/HBoxContainer/Panel/ScrollContainer/VBoxContainer"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
-text = "Svglib
-"
+text = "FamTree logo"
+icon = ExtResource("4_pdvwj")
 alignment = 0
 
 [node name="Control" type="Control" parent="Control/Panel/VBoxContainer/TabContainer/$3RD_PARTY_LICENSES/MarginContainer/HBoxContainer"]
@@ -137,4 +137,4 @@ bbcode_enabled = true
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]
 [connection signal="tab_changed" from="Control/Panel/VBoxContainer/TabContainer" to="." method="_on_tab_container_tab_changed"]
 [connection signal="pressed" from="Control/Panel/VBoxContainer/TabContainer/$3RD_PARTY_LICENSES/MarginContainer/HBoxContainer/Panel/ScrollContainer/VBoxContainer/Godot" to="." method="_on_godot_pressed"]
-[connection signal="pressed" from="Control/Panel/VBoxContainer/TabContainer/$3RD_PARTY_LICENSES/MarginContainer/HBoxContainer/Panel/ScrollContainer/VBoxContainer/Svglib" to="." method="_on_svglib_pressed"]
+[connection signal="pressed" from="Control/Panel/VBoxContainer/TabContainer/$3RD_PARTY_LICENSES/MarginContainer/HBoxContainer/Panel/ScrollContainer/VBoxContainer/Logo" to="." method="_on_logo_pressed"]

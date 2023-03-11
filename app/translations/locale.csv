@@ -6,6 +6,7 @@ $OPEN;Open;Otevřít
 $SAVE;Save;Uložit
 $SAVE_AS;Save As;Uložit jako
 $SAVE_ALL;Save All;Uložit vše
+$EXPORT_AS;Export AS;Exportovat jako
 $UNDO;Undo;Zpět
 $REDO;Redo;Vpřed
 $CLOSE;Close;Zavřít
@@ -20,3 +21,40 @@ $QUIT_CONFIRMATION_TITLE;Do you really want to quit?;Opravdu chcete program ukon
 $QUIT_CONFIRMATION_DIALOG;All unsaved progress will be lost.;Všechen neuložený postup bude ztracen.
 $QUIT_CONFIRMATION_OK;OK;OK
 $QUIT_CONFIRMATION_CANCEL;Cancel;Zrušit
+$WIDTH;Width;Šířka
+$HEIGHT;Height;Výška
+$VISIBILITY;Visibility;Viditelnost
+$SPACING;Spacing;Mezera
+$TOO_MANY_LEFT_SIBLINGS;Too many sibling on the left;Příliš mnoho sourozenců nalevo
+$TOO_MANY_RIGHT_SIBLINGS;Too many sibling on the right;Příliš mnoho sourozenců napravo
+$TOO_MANY_GENERATIONS;Too many generations;Příliš mnoho generací
+$PADDING_LEFT;Padding Left;Odsazení Zleva
+$PADDING_RIGHT;Padding Right;Odsazení Zprava
+$PADDING_TOP;Padding Top;Odsazení Zhora
+$PADDING_BOTTOM;Padding Bottom;Odsazení Zdola
+$CANCEL;Cancel;Zrušit
+$ERR_NO_SAVABLE;Error: No savable object found;Chyba: Nebyl nalezen žádný uložitelný objekt
+$ERR_WHILE_PACKING;Error: An error occured while packing;Chyba: Při balení nastala chyba
+$ERR_WHILE_SAVING;Error: An error occured while saving;Chyba: Při ukládání nastala chyba
+$ERR_INKSCAPE_CANNOT_CONVERT;Error: Cannot convert .svg to .pdf via Inkscape. Check log for more information;Chyba: Nelze konvertovat .svg do .pdf za pomoci Inkscape. Více informací dostupných v logu
+$ERR_WHILE_LOADING;Error: An error occured while loading ;Chyba: Nastala chyba při načítání
+$SUCCESS_SAVED_TO;Successfully saved to;Úspěšně uloženo do
+$SUCCESS_SAVED_AS;Successfully saved as;Úspěšně uloženo jako
+$ERR_NO_WORK_AREA;Error: No work area found;Chyba: Nebyla nalezena pracovní oblast
+$SUCCESS_OPENED;Successfully opened;Úspěšně otevřeno
+$SUCCESS_NEW;Successfully created new LinTree;Úspěšně vytvořen nový LinTree
+$SUCCESS_EXPORTED_AS;Successfully exported as;Úspěšně exportováno jako
+$NEW_CONFIRMATION_TITLE;Create new LinTree;Vytvořit nový LinTree
+$NEW_CONFIRMATION_DIALOG;Do you reallz want to create new LinTree?\nAll unsaved progress will be lost.;Opravdu chcete vytvořit nový LinTree?\nVšechen neuložený postup bude ztracen.
+$NEW_CONFIRMATION_OK;OK;OK
+$NEW_CONFIRMATION_CANCEL;Cancel;Zrušit
+$AT_LEAST_ONE_REQUIRED;Can’t delete. At least one generation is required;Nelze odstranit. Alespoň jedna generace je vyžadována
+$REPO;Repository;Repozitář
+$LANGUAGE;Language;Jazyk
+$DEFAULT_SAVE_DIR;Default save directory;Výchozí složka pro uložení
+$APPLY_CHANGES;Apply changes;Aplikovat změny
+$EXPORT_LINE_THICKNESS;Line thickness on export;Tloušťka linek po exportu
+$INKSCAPE_PATH;Inkscape path;Cesta k Inkscape
+$LINK_ZAMZAR;Open ZAMZAR.com (Useful .pdf online converter, if Inkscape is not installed);Otevřít ZAMZAR.com (Užitečný online .pdf konvertor, pokud není nainstalovaný Inkscape)
+$THIS_WILL_OPEN_BROWSER;Note: This button will open your default web browser;Poznámka: Tohle tlačítko otevře váš výchozí webový prohlížeč
+$SAVED_SVG_BUT_NOT_PDF;was saved, but could not be converted to .dpf;uloženo, ale nebylo možné soubor konvertovat do .pdf

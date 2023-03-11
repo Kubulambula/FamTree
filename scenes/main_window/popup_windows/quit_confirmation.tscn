@@ -5,7 +5,7 @@
 [node name="quit_confirmation" type="ConfirmationDialog"]
 transparent_bg = true
 title = "$QUIT_CONFIRMATION_TITLE"
-size = Vector2i(486, 100)
+size = Vector2i(494, 100)
 transparent = true
 theme = ExtResource("1_ohpf4")
 ok_button_text = "$QUIT_CONFIRMATION_OK"

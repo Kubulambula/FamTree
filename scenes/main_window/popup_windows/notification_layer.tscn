@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjvfclu2bojrm"]
+
+[ext_resource type="Script" path="res://scenes/main_window/popup_windows/notification_layer.gd" id="1_asf1o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4xq1g"]
+content_margin_left = 8.0
+content_margin_top = 3.0
+content_margin_right = 8.0
+content_margin_bottom = 3.0
+bg_color = Color(0.196078, 0.196078, 0.196078, 0.823529)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="NotificationLayer" type="CanvasLayer"]
+script = ExtResource("1_asf1o")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(50, 35)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_4xq1g")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/PanelContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "sample text"

@@ -1,11 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://co6tfpliu178t"]
+[gd_scene load_steps=4 format=3 uid="uid://co6tfpliu178t"]
 
 [ext_resource type="Theme" uid="uid://cbc4dyquppe6q" path="res://app/themes/godot4.tres" id="1_3ad0l"]
 [ext_resource type="Script" path="res://scenes/editors/lineage_editor/popup_windows/trunk_settings.gd" id="2_5rlrl"]
+[ext_resource type="Texture2D" uid="uid://jhavtj0f0yq5" path="res://icons/eye_open.svg" id="3_svnsx"]
 
 [node name="TrunkSettings" type="PopupPanel"]
 transparent_bg = true
-size = Vector2i(220, 165)
+size = Vector2i(220, 200)
 visible = true
 transparent = true
 theme = ExtResource("1_3ad0l")
@@ -18,8 +19,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 3.0
 offset_top = 4.0
-offset_right = 217.0
-offset_bottom = 161.0
+offset_right = -3.0
+offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -60,6 +61,23 @@ min_value = 125.0
 max_value = 2000.0
 value = 125.0
 
+[node name="Visibility" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VisibilityLabel" type="Label" parent="Control/MarginContainer/VBoxContainer/Visibility"]
+layout_mode = 2
+text = "$VISIBILITY"
+
+[node name="Control" type="Control" parent="Control/MarginContainer/VBoxContainer/Visibility"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VisibilityCheckButton" type="CheckButton" parent="Control/MarginContainer/VBoxContainer/Visibility"]
+unique_name_in_owner = true
+layout_mode = 2
+icon = ExtResource("3_svnsx")
+
 [connection signal="popup_hide" from="." to="." method="_on_popup_hide"]
 [connection signal="value_changed" from="Control/MarginContainer/VBoxContainer/WidthSpinBox" to="." method="_on_width_spin_box_value_changed"]
 [connection signal="value_changed" from="Control/MarginContainer/VBoxContainer/HeightSpinBox" to="." method="_on_height_spin_box_value_changed"]
+[connection signal="toggled" from="Control/MarginContainer/VBoxContainer/Visibility/VisibilityCheckButton" to="." method="_on_visibility_check_button_toggled"]

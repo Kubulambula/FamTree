@@ -24,6 +24,7 @@ enum SettingsTabs {
 
 enum HelpTabs {
 	HELP,
+	REPO,
 	LICENSE,
 	SUPPORT,
 }
@@ -78,13 +79,15 @@ func _on_file_id_pressed(id: int) -> void:
 func _on_settings_id_pressed(id: int) -> void:
 	match id:
 		SettingsTabs.SETTINGS:
-			pass
+			add_child(preload("res://scenes/main_window/popup_windows/settings.tscn").instantiate())
 
 
 func _on_help_id_pressed(id: int) -> void:
 	match id:
 		HelpTabs.HELP:
-			OS.shell_open("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
+			OS.shell_open("https://github.com/Kubulambula/FamTree/issues")
+		HelpTabs.REPO:
+			OS.shell_open("https://github.com/Kubulambula/FamTree")
 		HelpTabs.LICENSE:
 			var license_popup = load("res://scenes/main_window/popup_windows/license.tscn").instantiate()
 #			license_popup.theme = Globals.theme

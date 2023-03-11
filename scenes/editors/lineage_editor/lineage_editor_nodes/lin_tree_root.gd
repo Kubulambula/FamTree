@@ -7,7 +7,7 @@ var padding_right: float = 25
 var padding_top: float = 25
 var padding_bottom: float = 25
 
-var trunk_node_size: Vector2 = Vector2(400, 300)
+var trunk_node_size: Vector2 = Vector2(300, 200)
 var paper_size: Vector2
 var work_area_rect: Rect2
 
@@ -43,7 +43,9 @@ func redraw() -> int:
 	var trunks: Array[LinTreeTrunk] = get_trunks()
 	var spacing_between_trunks: float = (work_area_rect.size.y - trunk_node_size.y * trunks.size()) / (trunks.size() + 1)
 	if spacing_between_trunks < 0:
-		push_error("Too much generations or the height is just too big")
+		var err_str: String = "$TOO_MANY_GENERATIONS"
+		print(err_str)
+		Globals.notify(tr(err_str), Notify.Icon.WARN)
 		return 1
 	
 	for _x in 2:
@@ -108,9 +110,6 @@ func _draw() -> void:
 
 
 func add_trunk(trunk: LinTreeTrunk) -> void:
-#	if get_child_count() > 0:
-#		push_error("reeee uz mam trunk")
-#		return 
 	add_child(trunk)
 	trunk.owner = self
 

@@ -7,8 +7,13 @@ var war: Rect2
 
 var left_siblings: Array = []
 var right_siblings: Array = []
-var sibling_width: float = 240
+var sibling_width: float = 200
 var sibling_spacing: float = 100
+
+var invisible: bool = false:
+	set(value):
+		invisible = value
+		modulate.a = 0.3 if invisible else 1.0
 
 var _add_up: TextureButton = TextureButton.new()
 var _add_down: TextureButton = TextureButton.new()
@@ -26,10 +31,13 @@ func _get_property_list() -> Array:
 		{"name": "right_siblings", "type": TYPE_ARRAY, "usage": PROPERTY_USAGE_STORAGE},
 		{"name": "sibling_width", "type": TYPE_FLOAT, "usage": PROPERTY_USAGE_STORAGE},
 		{"name": "sibling_spacing", "type": TYPE_FLOAT, "usage": PROPERTY_USAGE_STORAGE},
+		{"name": "invisible", "type": TYPE_BOOL, "usage": PROPERTY_USAGE_STORAGE},
 	]
 
 
 func get_rects() -> Array[Rect2]:
+	if invisible:
+		return []
 	var rects: Array[Rect2] = [get_global_rect()]
 	for sibling in left_siblings:
 		rects.append(sibling.get_global_rect())
@@ -39,6 +47,7 @@ func get_rects() -> Array[Rect2]:
 
 
 func _init():
+	# TODO make possible invisible generations
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	mouse_default_cursor_shape = Control.CURSOR_BUSY
 	
@@ -82,12 +91,14 @@ func _gui_input(event: InputEvent) -> void:
 			settings.show_pls(
 				get_screen_transform().origin + get_local_mouse_position() * Globals.active_camera.zoom,
 				get_parent().trunk_node_size.x,
-				get_parent().trunk_node_size.y
+				get_parent().trunk_node_size.y,
+				!invisible,
 			)
 
 
-func _on_new_values(width: float, height: float) -> void:
+func _on_new_values(width: float, height: float, visible: bool) -> void:
 	var p = get_parent()
+	invisible = !visible
 	p.trunk_node_size = Vector2(width, height)
 	p.redraw()
 
@@ -99,7 +110,6 @@ func _on_add_up_pressed() -> void:
 	parent.move_child(new_trunk, get_index() + 1)
 	
 	if await parent.redraw():
-		printerr("nope")
 		new_trunk._on_delete_self_pressed()
 
 
@@ -110,7 +120,6 @@ func _on_add_down_pressed() -> void:
 	parent.move_child(new_trunk, get_index())
 	
 	if await parent.redraw():
-		printerr("nope")
 		new_trunk._on_delete_self_pressed()
 #		parent.queue_redraw()
 
@@ -143,7 +152,7 @@ func _on_delete_self_pressed() -> void:
 				parent.redraw()).bind(get_parent())
 		)
 	else:
-		printerr("nono")
+		Globals.notify(tr("$AT_LEAST_ONE_REQUIRED"), Notify.Icon.WARN, 2.5)
 
 
 func redraw(work_area_rect: Rect2, rect: Rect2) -> int:
@@ -161,11 +170,16 @@ func redraw(work_area_rect: Rect2, rect: Rect2) -> int:
 			add_child(s)
 	
 	# Draw siblings
+	var err_str: String = ""
 	if draw_branches_on_left(left_siblings):
-		push_error("branches on left out of area")
+		err_str = "$TOO_MANY_LEFT_SIBLINGS"
+		print(err_str)
+		Globals.notify(tr(err_str), Notify.Icon.WARN)
 		return 2
 	if draw_branches_on_right(right_siblings):
-		push_error("branches on right out of area")
+		err_str = "$TOO_MANY_RIGHT_SIBLINGS"
+		print(err_str)
+		Globals.notify(tr(err_str), Notify.Icon.WARN)
 		return 2
 	return 0
 

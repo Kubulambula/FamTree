@@ -1,0 +1,160 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3hg3o76d3pid"]
+
+[ext_resource type="Theme" uid="uid://cbc4dyquppe6q" path="res://app/themes/godot4.tres" id="1_7gcy8"]
+[ext_resource type="Script" path="res://scenes/main_window/popup_windows/settings.gd" id="2_ee07h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y0oup"]
+bg_color = Color(0.168627, 0.211765, 0.262745, 1)
+
+[node name="Settings" type="Window"]
+transparent_bg = true
+initial_position = 2
+title = "$SETTINGS"
+size = Vector2i(720, 405)
+transient = true
+transparent = true
+theme = ExtResource("1_7gcy8")
+script = ExtResource("2_ee07h")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_y0oup")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Panel/MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel/MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Language" type="HBoxContainer" parent="Control/Panel/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/Panel/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Language"]
+layout_mode = 2
+text = "$LANGUAGE"
+
+[node name="Control" type="Control" parent="Control/Panel/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Language"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Lang" type="OptionButton" parent="Control/Panel/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Language"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(425, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 2
+selected = 0
+popup/item_0/text = "en"
+popup/item_0/id = 0
+popup/item_1/text = "cs"
+popup/item_1/id = 1
+
+[node name="LineThickness" type="HBoxContainer" parent="Control/Panel/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/Panel/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/LineThickness"]
+layout_mode = 2
+text = "$EXPORT_LINE_THICKNESS"
+
+[node name="Control" type="Control" parent="Control/Panel/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/LineThickness"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LineThickness" type="SpinBox" parent="Control/Panel/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/LineThickness"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(425, 0)
+layout_mode = 2
+min_value = 0.25
+step = 0.25
+value = 5.0
+
+[node name="DefaultDir" type="HBoxContainer" parent="Control/Panel/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/Panel/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/DefaultDir"]
+layout_mode = 2
+text = "$DEFAULT_SAVE_DIR"
+
+[node name="Control" type="Control" parent="Control/Panel/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/DefaultDir"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SaveDir" type="LineEdit" parent="Control/Panel/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/DefaultDir"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(425, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "./"
+clear_button_enabled = true
+select_all_on_focus = true
+
+[node name="InkscapePath" type="HBoxContainer" parent="Control/Panel/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/Panel/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/InkscapePath"]
+layout_mode = 2
+text = "$INKSCAPE_PATH"
+
+[node name="Control" type="Control" parent="Control/Panel/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/InkscapePath"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="InkscapePath" type="LineEdit" parent="Control/Panel/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/InkscapePath"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(425, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "..."
+clear_button_enabled = true
+select_all_on_focus = true
+
+[node name="ZAMZAR" type="Button" parent="Control/Panel/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+tooltip_text = "$THIS_WILL_OPEN_BROWSER"
+text = "$LINK_ZAMZAR"
+
+[node name="Control" type="Control" parent="Control/Panel/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ConfirmButton" type="Button" parent="Control/Panel/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "$APPLY_CHANGES"
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="pressed" from="Control/Panel/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ZAMZAR" to="." method="_on_zamzar_pressed"]
+[connection signal="pressed" from="Control/Panel/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ConfirmButton" to="." method="_on_confirm_button_pressed"]
